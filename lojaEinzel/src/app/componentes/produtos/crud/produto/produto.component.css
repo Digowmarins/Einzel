@@ -1,0 +1,353 @@
+.produto-mobile {
+    display: none;
+}
+
+.produto {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.foto-mobile {
+    display: none;
+}
+
+.fotos {
+    width: 63%;
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 1000px; 
+    overflow-y: auto; 
+    scrollbar-width: thin; 
+    scrollbar-color: transparent transparent;
+}
+
+.fotos::-webkit-scrollbar {
+    width: 6px; /* Largura da barra de rolagem */
+}
+
+.fotos::-webkit-scrollbar-thumb {
+    background-color: transparent; /* Cor da barra de rolagem */
+}
+
+.foto {
+    padding: 5px;
+    padding-left: 0px;
+    width: 50%;
+    height: 45vw;
+    object-fit: cover; 
+    box-sizing: border-box; /* Considera padding e borda no cálculo do tamanho */
+}
+
+
+.ft {
+    width: 100%;
+    max-width: 100%;
+    height: 100%; 
+    object-fit: cover;
+}
+
+.informacoes {
+    padding-left: 20px;
+    flex: 1;
+}
+
+.tamanhos {
+    margin-top: 3%;
+    width: 100%;
+}
+
+.tamanhos > li {
+    font-weight: 500;
+}
+
+.nome {
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.preco {
+    margin-top: 15px;
+}
+
+.preco_cartao {
+    font-size: 25px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+
+.tamanhos > li {
+    display: inline-block; 
+    padding: 5px 17px 5px 17px;
+    border: 1px solid white;
+    border-radius: 15px;
+    margin-right: 10%; /* Adicione margem para espaçamento entre os elementos */
+    box-sizing: content-box; 
+}
+
+.tamanhos > li:hover {
+    border: 1px solid #000;
+}
+
+.botao_comprar {
+    width: 97%;
+    height: 45px;
+    border-radius: 5px;
+    background-color: white;
+    margin-top: 5%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.frete {
+    padding-top: 35px;
+}
+
+.frete > label {
+    padding-right: 10%;
+}
+
+.input-wrapper {
+    display: inline-block;
+    position: relative;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+}
+
+.input-wrapper button {
+    position: absolute;
+    right: 30px;
+    top: 30%;
+    background-color: transparent;
+    padding: 6px 25px 6px 25px;
+    border: 1px solid #0000004e;
+    border-radius: 5px;
+}
+
+
+.input-wrapper input {
+    height: 50px;
+    width: 300px;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 1px solid #0000004e;
+}
+
+
+.input-wrapper input[type="number"]::-webkit-inner-spin-button,
+.input-wrapper input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.input-wrapper input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.frete-calculado {
+    margin-left: 200px;
+}
+
+.descricao{
+    margin-top: 50px;
+}
+
+.seta {
+    font-size: 24px; /* Ajuste o tamanho conforme necessário */
+    vertical-align: middle;
+    transition: transform 0.3s ease; /* Adicionando uma transição suave */
+}
+
+.seta.invertida {
+    transform: rotate(180deg);
+}
+
+
+.descricao-conteudo {
+    padding: 10px 15px 15px 15px;
+}
+
+.composicao-conteudo { 
+    padding: 10px 15px 15px 15px;
+}
+
+.produtos-relacionados {
+    margin-top: 70px;
+    width: 100%;
+    border-top: 1px solid rgba(0, 0, 0, 0.281);
+    margin-bottom: 40px;
+}
+
+.produtos-relacionados h1 {
+    text-align: center;
+}
+
+.produtos-relacionados button {
+    margin-top: 40px;
+    margin-bottom: 40px;
+} 
+
+.titulo {
+    font-size: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.card-produto-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    overflow: hidden;
+    transition: margin-left 0.5s ease;
+}
+
+.carousel-container {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+ }
+ 
+ .carousel-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    padding-bottom: 50px;
+ }
+
+.card-produto{ 
+    flex: 0 0 auto;
+    margin-right: 15px;
+    width: calc(25% - 10px);
+    margin-bottom: 50px;
+}
+
+.card-produto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    margin-bottom: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.info h3 {
+    margin-bottom: 10px;
+}
+
+.botoes {
+    z-index: 2;
+    width: 100%;
+    display: inline;
+    position: absolute;
+    
+}
+
+.next_button {
+    position: absolute;
+    top: 15vw;
+    right: 0;
+    transform: translateY(-50%);
+    border: none;
+    background-color: white;
+    color:black;
+    cursor: pointer;
+}
+
+.prev_button {
+    position: absolute;
+    top: 15vw;
+    left: 0;
+    transform: translateY(-50%);   
+    border: none;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.produtos-relacionados-mobile {
+    display: none;
+}
+
+
+
+
+@media (max-width: 768px) {
+
+    .foto {
+        display: none;
+    }
+
+    .foto-mobile {
+        display: block;
+        width: 100%;
+        height: 60vh;
+        padding: 0;
+        box-sizing: border-box;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .ft {
+        width: 100%;
+        height: 100%;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    @keyframes slideAnimation {
+        from {
+            transform: translateX(var(--start, 0));
+        }
+        to {
+            transform: translateX(var(--end, 0));
+        }
+    }
+
+    /* Adicione classes específicas para controlar a direção da animação */
+    .swipe-left .ft {
+        animation: slideAnimation 0.3s ease-in-out;
+        --start: 100%;
+        --end: 0;
+    }
+
+    .swipe-right .ft {
+        animation: slideAnimation 0.3s ease-in-out;
+        --start: 0;
+        --end: 100%;
+    }
+
+    .informacoes {
+        display: block;
+        position: relative;
+        margin-left: 3%;
+        padding-left: 0px;
+    }
+
+    .nome {
+        font-size: 20px;
+        padding-top: 15px;
+    }
+
+    .preco_cartao {
+        font-size: 17px;
+    }
+
+
+    .frete-calculado {
+        margin-left: 0px;
+    }
+
+    .produtos-relacionados {
+        display: none;
+    }
+
+    .produtos-relacionados-mobile {
+        display: block;
+    }
+
+    .card-produto {
+        width: calc(50vw);
+    }
+
+}

@@ -1,0 +1,45 @@
+<!-- Seção visível apenas quando não autenticado -->
+<div *ngIf="!authService.isAuthenticated()">
+  <p>Faça Login para continuar</p>
+</div>
+
+<div class="minhas-compras" *ngIf="authService.isAuthenticated()">
+  <div class="titulo-container">
+    <i class="material-icons">
+      shopping_cart_checkout
+    </i>
+    <h1 class="titulo">Meus Pedidos</h1>
+  </div>
+  <div class="desktop-view">
+    <table class="produto-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Data da Compra</th>
+          <th>Método de Pagamento</th>
+          <th>Valor Total</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let compra of minhasCompras" class="produto-row">
+          <td>{{ compra.id }}</td>
+          <td>{{ compra.dataCompra | date:'dd/MM/yyyy HH:mm' }}</td>
+          <td>{{ compra.metodoPagamento.toUpperCase() }}</td>
+          <td>R$ {{ compra.total | number:'1.2-2' }}</td>
+          <td>{{ compra.statusCompra || 'Em Preparo' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mobile-view">
+    <div *ngFor="let compra of minhasCompras" class="produto-row-mobile">
+      <p>ID: {{ compra.id }}</p>
+      <p>Data da Compra: {{ compra.dataCompra | date:'dd/MM/yyyy HH:mm' }}</p>
+      <p>Método de Pagamento: {{ compra.metodoPagamento.toUpperCase() }}</p>
+      <p>Valor Total: R$ {{ compra.total | number:'1.2-2' }}</p>
+      <p>Status: {{ compra.statusCompra || 'Em Preparo' }}</p>
+    </div>
+  </div>
+</div>

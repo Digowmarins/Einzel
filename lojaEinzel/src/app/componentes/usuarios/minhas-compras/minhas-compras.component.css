@@ -1,0 +1,78 @@
+.minhas-compras {
+  margin-bottom: 170px;
+}
+
+.titulo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  
+
+.titulo {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+/* Estilos para a visualização em desktop */
+.desktop-view {
+    margin-left: 15%;
+    margin-right: 15%;
+    display: block;
+  }
+  
+  /* Estilos para a tabela em desktop */
+  .produto-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .produto-table th, .produto-table td {
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: left;
+    border: none;
+  }
+  
+  .produto-table th {
+    background-color: #f2f2f2;
+    border: none;
+  }
+
+  .mobile-view {
+    display: none;
+  }
+  
+  .produto-row-mobile {
+    margin-bottom: 20px;
+  }
+  
+  @media (max-width: 767px) {
+  .desktop-view {
+    display: none;
+  }
+
+  
+  .mobile-view {
+    display: block;
+    
+  }
+
+  
+  .produto-row-mobile {
+    border: 1px solid #ddd; 
+    padding: 10px; 
+    margin-bottom: 10px; 
+    
+  }
+  
+ 
+  .produto-row-mobile p {
+    font-weight: bold;
+    margin: 5px 0; 
+  }
+}

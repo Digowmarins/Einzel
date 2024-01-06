@@ -1,0 +1,418 @@
+.cabecalho {
+    width: 100%;
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+.icons {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    margin-top: 40px; 
+    transform: translateY(-50%); 
+    right: 10px;
+}
+
+.icon {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+}
+
+
+.username_container:hover {
+    border: 1px solid black;
+}
+
+.user-menu {
+    position: absolute;
+    top: 100%; 
+    right: 47%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: none;
+    z-index: 1;
+}
+
+
+.user-menu p {
+    cursor: pointer;
+    margin: 5px 0;
+    padding: 3px;
+}
+
+.icon:hover .user-menu, .user-menu:hover {
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+.logo-container {
+    max-width: 200px;
+    max-height: auto;
+    margin: 0; 
+    text-align: center;
+    padding: 20px 15px 15px 15px;
+}
+
+.logoModarte {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+}
+
+.busca {
+    display: flex;
+    position: absolute;
+    top: 40px;
+    left: 10px;
+    width: 100%; 
+    max-width: 250px; 
+}
+
+.input-busca {
+    flex: 1;
+    padding-left: 10px; 
+    width: 100%;
+    min-width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+.busca img {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: auto;
+    display: inline;
+    padding-left: 10px; 
+}
+
+#menu-toggle {
+    display: none;
+}
+
+.mobile_only {
+    display: none;
+}
+
+.options_mobile {
+    display: none;
+}
+
+
+.options {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.options > p {
+    display: inline;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+    color: rgb(0, 0, 0);
+}
+
+.material-icons{
+    vertical-align: middle;
+}
+
+.fadeIn {
+    animation: fadeIn 0.45s ease-in-out; 
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.produtos {
+    height: 100%;
+    width: 100%;
+    display: none;
+    padding: 15px 25px 10px 25px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.products {
+    padding-bottom: 58px; 
+}
+
+.product-menu {
+    display: grid;
+    grid-template-columns: repeat(4, 20%);
+    grid-gap: 10px; 
+    list-style-type: none;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.product-menu li {
+    padding: 10px;
+    text-align: left;
+    width: auto; 
+    box-sizing: border-box;
+    overflow-x: hidden;
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+@media (max-width: 768px) {
+
+    .cabecalho {
+        justify-content: center;
+        margin-bottom: 25px;
+    }
+
+    #menu-toggle {
+        position: absolute;
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+        left: 2.7%;
+        background-color: white;
+        border: none;
+    }  
+
+    .icons {
+        position: absolute;
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+        right: 2.7%;
+        background-color: white;
+        border: none;
+        margin-top: 0;
+    }
+      
+    .desktop_only {
+        display: none;
+    }
+
+    .mobile_only {
+        display: block;
+    }
+
+
+    .logo-container {  
+        max-width: 100%;
+        width: 60%;
+        margin-bottom: 30px;  
+        margin-top: 0.7%;
+    }
+        
+    .logoModarte {
+        width: 70%;
+        height: 10%; 
+    }
+
+    .busca {
+        position: absolute;
+        display: flex;
+        justify-content: center; 
+        align-items: center;
+        max-width: 93%;
+        margin: 25px auto;
+        margin-top: 20%;
+        left: 2.7%; 
+        right: 2.7%;
+    }
+    
+    .busca img {
+        right: 0;
+        padding-right: 15px;
+    }
+
+    @keyframes slideAnimation {
+        from {
+            transform: translateX(var(--start, 0));
+        }
+        to {
+            transform: translateX(var(--end, 0));
+        }
+    }
+
+
+    .slideInDirAnimation {
+        animation: slideAnimation 0.45s ease forwards;
+        --start: 100%;
+        --end: 0;
+    }
+
+    .slideInAnimation {
+        animation: slideAnimation 0.45s ease forwards;
+        --start: -100%;
+        --end: 0;
+    }
+
+    @keyframes slideOutAnimation {
+        from {
+            transform: translateX(var(--start, 0));
+        }
+        to {
+            transform: translateX(var(--end, 0));
+        }
+    }
+
+    .slideOutAnimation {
+        animation: slideOutAnimation 0.45s ease-in-out;
+        --start: 0;
+        --end: -100%;
+    }
+
+    .slideOutDirAnimation {
+        animation: slideOutAnimation 0.45s ease-in-out;
+        --start: 0;
+        --end: 100%;
+    }
+
+        
+    .options_mobile {
+        width: 100%; 
+        height: 100vh;
+        /* position: absolute;   */
+        top: 0.1px; 
+        right: 0;  
+        background-color: #ffffff;
+        z-index: 1000;
+        overflow: hidden;
+        position: fixed;
+    }
+      
+    .options_mobile > p {
+        padding: 15px;
+        margin: 0;
+        text-align: left;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+        color: #000000; 
+        z-index: 999; 
+    }
+
+    .options_mobile .x {
+        width: 15px;
+        height: auto;
+        display: inline;
+        left: 0; 
+        z-index: 999; 
+        margin-bottom: 5px;
+        padding: 15px;
+    }
+
+    .options_mobile .fechar {
+        border-bottom: 1px solid #000000;
+    }
+
+    .products_mobile {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0;
+    }
+
+    .products_mobile > img {
+        width: 25px;
+        height: auto;
+        position: absolute;
+        right: 0;
+        margin-right: 13px;
+        transform: translateY(-50%); 
+        color: black;
+    }
+
+    .produtos {
+        width: 100%; 
+        height: auto;
+        position: absolute;  
+        top: 5px; 
+        right: 0;  
+        background-color: #ffffff;
+        z-index: 1000;
+        overflow-y: hidden;
+        padding: 0;
+    }
+
+    .produtos .iconvoltar {
+        width: 15px;
+        height: auto;
+        display: inline;
+        left: 0; 
+        margin: 0;
+        color: black;
+        margin-bottom: 5px;
+        padding: 15px;
+        padding-left: 25px;
+    }
+    
+    .voltar {
+        display: flex;
+        align-items: center;
+    }
+    
+    .voltar p {
+        flex-grow: 1;
+        height: auto;
+        color: black;
+        font-weight: bold;
+        text-align: center; 
+        margin-right: 7%; 
+    }
+
+    .produtos .voltar {
+        border-bottom: 1px solid #000000;
+    }
+
+    .product-menu {
+        display: block;
+    }
+    
+    .product-menu li {
+        padding: 15px 25px 10px 25px;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+        color: #000000; 
+        z-index: 999; 
+    }
+
+
+    .user-menu  {
+
+    } 
+    
+    .user-menu p {
+        padding: 5px;
+        padding-right: 10px;
+    } 
+}

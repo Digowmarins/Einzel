@@ -1,0 +1,7 @@
+<div class="carousel">
+  <div class="banner-container">
+    <div *ngFor="let banner of banners; let i = index" class="banner" [ngClass]="{ 'active': i === currentSlideIndex }" [ngStyle]="{'transform': i === currentSlideIndex ? 'translateX(0)' : 'translateX(100%)', 'opacity': i === currentSlideIndex ? 1 : 0, 'z-index': i === currentSlideIndex ? 1 : 0}">
+      <img [src]="banner" alt="Banner">
+    </div>
+  </div>
+</div>

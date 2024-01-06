@@ -1,0 +1,110 @@
+<div *ngIf="!produto">Carregando...</div>
+<div class="produto" *ngIf="produto">
+    <div class="fotos">
+        <div class="foto" *ngFor="let fotoUrl of produto.imagemUrl">
+            <img class="ft" [src]="fotoUrl" alt="{{ produto.nome }}">
+        </div>
+    </div>
+    <div class="foto-mobile" [ngClass]="{'swipe-left': swipeLeft, 'swipe-right': swipeRight}" (swipeleft)="nextImage()" (swiperight)="prevImage()">
+        <img class="ft" [src]="produto.imagemUrl[imagemIndex]" alt="{{ produto.nome }}">
+    </div>
+    <div class="informacoes">
+        <h1 class="nome">{{ produto.nome }}</h1>
+        <p class="preco">R$ {{ produto.preco | number:'2.2-2' }}</p>
+        <p class="preco_cartao">3X de R$ {{ produto.preco / 3 | number:'2.2-2' }}</p>
+        <ul class="tamanhos">
+            <li *ngFor="let variacao of produto.variacoes">
+                {{ variacao.tamanho.toUpperCase() }}
+            </li>
+        </ul>
+        <button class="botao_comprar">COMPRAR</button>
+        <div class="frete">
+            <label for="">Calcule o frete:</label>
+            <div class="input-wrapper">
+                <input type="text" [(ngModel)]="cepDest" class="cepDest">
+                <button (click)="calcularFrete()">Calcular</button>
+            </div>
+            <div class="frete-calculado" *ngIf="mostrarFreteCalculado">
+                <p><strong>PAC: </strong>EM ATÉ {{dadosFrete?.prazopac}} DIAS ÚTEIS <strong>R$
+                        {{dadosFrete?.valorpac}}</strong> </p>
+                <p><strong>SEDEX: </strong>EM ATÉ {{dadosFrete?.prazosedex}} DIAS ÚTEIS <strong>R$
+                        {{dadosFrete?.valorsedex}} </strong></p>
+            </div>
+        </div>
+        <div class="composicao">
+            <h2 (click)="toggleComposicao()">
+                Composição
+                <i class="material-icons seta" [class.invertida]="mostrarComposicao">keyboard_arrow_down</i>
+            </h2>
+            <div class="composicao-conteudo" *ngIf="mostrarComposicao">
+                <p>{{produto.composicao}}</p>
+            </div>
+        </div>
+
+        <div class="descricao">
+            <h2 (click)="toggleDescricao()">
+                Descrição
+                <i class="material-icons seta" [class.invertida]="mostrarDescricao">keyboard_arrow_down</i>
+            </h2>
+            <div class="descricao-conteudo" *ngIf="mostrarDescricao">
+                <p>{{produto.descricao}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="produtos-relacionados">
+    <h1 class="titulo">Você também pode gostar:</h1>
+    <div class="carousel-container">
+        <div class="carousel-wrapper" [style.transform]="'translateX(' + (mostrarProdutosIndex * -25) + 'vw)'">
+            <!-- 34.7 -->
+            <div class="card-produto" *ngFor="let produtoRelacionado of produtosRelacionados; let i = index">
+                <img [src]="mostrarSegundaImagem[i] && produtoRelacionado.imagemUrl && produtoRelacionado.imagemUrl.length > 1 ? produtoRelacionado.imagemUrl[1] : produtoRelacionado.imagemUrl[0]"
+                    alt="{{ produtoRelacionado.nome }}"
+                    (mouseover)="alternarSegundaImagem(i)"
+                    (mouseout)="resetarSegundaImagem(i)">
+                <div class="info">
+                    <h3>{{ produtoRelacionado.nome }}</h3>
+                    <p class="produto-relacionado-preco">R$ {{ produtoRelacionado.preco | number:'2.2-2' }}</p>
+                    <p class="produto-relacionado-preco-cartao">3X de R$ {{ produtoRelacionado.preco / 3 | number:'2.2-2' }}</p>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="produtosRelacionados.length >= 5" class="botoes">
+            <button class="prev_button" (click)="prevProdutosRelacionados()">
+                <i class="material-icons">keyboard_arrow_left</i>
+            </button>
+            <button class="next_button" (click)="nextProdutosRelacionados()">
+                <i class="material-icons">keyboard_arrow_right</i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="produtos-relacionados-mobile">
+    <h1 class="titulo">Você também pode gostar:</h1>
+    <div class="carousel-container">
+        <div class="carousel-wrapper" [style.transform]="'translateX(' + (mostrarProdutosIndex * -53.2) + 'vw)'">
+            <div class="card-produto" *ngFor="let produtoRelacionado of produtosRelacionados; let i = index">
+                <img [src]="mostrarSegundaImagem[i] && produtoRelacionado.imagemUrl && produtoRelacionado.imagemUrl.length > 1 ? produtoRelacionado.imagemUrl[1] : produtoRelacionado.imagemUrl[0]"
+                    alt="{{ produtoRelacionado.nome }}"
+                    (mouseover)="alternarSegundaImagem(i)"
+                    (mouseout)="resetarSegundaImagem(i)">
+                <div class="info">
+                    <h3>{{ produtoRelacionado.nome }}</h3>
+                    <p class="produto-relacionado-preco">R$ {{ produtoRelacionado.preco | number:'2.2-2' }}</p>
+                    <p class="produto-relacionado-preco-cartao">3X de R$ {{ produtoRelacionado.preco / 3 | number:'2.2-2' }}</p>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="produtosRelacionados.length >= 5" class="botoes">
+            <button class="prev_button" (click)="prevProdutosRelacionadosMobile()">
+                <i class="material-icons">keyboard_arrow_left</i>
+            </button>
+            <button class="next_button" (click)="nextProdutosRelacionadosMobile()">
+                <i class="material-icons">keyboard_arrow_right</i>
+            </button>
+        </div>
+    </div>
+</div>

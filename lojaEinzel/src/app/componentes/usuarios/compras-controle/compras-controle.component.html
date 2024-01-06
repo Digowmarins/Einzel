@@ -1,0 +1,34 @@
+<div class="compras-controle">
+  <h2 class="titulo">Controle de Compras</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Data da Compra</th>
+        <th>Total</th>
+        <th>Método de Pagamento</th>
+        <th>Status da Compra</th>
+        <th>Código de Rastreio</th>
+        <th>Endereço</th> <!-- Nova coluna para o endereço -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let compra of compras">
+        <td>{{ compra.id }}</td>
+        <td>{{ compra.dataCompra | date:'short' }}</td>
+        <td>{{ compra.total | currency:'BRL' }}</td>
+        <td>{{ compra.metodoPagamento }}</td>
+        <td>{{ compra.statusCompra || 'N/A' }}</td>
+        <td>{{ compra.codigoRastreio || 'N/A' }}</td>
+        <td>{{ exibirEndereco(compra.enderecoEntrega) }}</td> <!-- Nova coluna para o endereço -->
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="codigo-rastreio-input">
+    <input [(ngModel)]="idCompra" placeholder="Digite o ID da compra" />
+    <input [(ngModel)]="novoCodigoRastreio" placeholder="Digite o código de rastreio" />
+    <button (click)="adicionarCodigoRastreio()">Adicionar Código</button>
+  </div>
+</div>

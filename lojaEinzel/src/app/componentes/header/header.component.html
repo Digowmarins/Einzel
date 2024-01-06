@@ -1,0 +1,75 @@
+<div class="cabecalho">
+    <div class="logo-container" (click)="navegarParaInicio()">
+        <img class="logoEnziel" src="../../../assets/Einzel2.png" alt="Logo enziel">
+    </div>
+    <div class="busca">
+        <input class="input-busca" type="text" name="buscaProdutos" id="buscaProdutos"
+            placeholder="O que você está buscando?">
+        <img src="../../../assets/lupa-arredondada.png" alt="ícone lupa">
+    </div>
+    <button id="menu-toggle" class="material-icons" (click)="toggleMenuOpen()">menu</button>
+    <div class="icons">
+        <span class="icon">
+            <a *ngIf="!authService.isAuthenticated()" href="/login" class="material-icons">person</a>
+            <a *ngIf="!authService.isAuthenticated()" href="/login" class="desktop_only">Login</a>
+            <a *ngIf="!authService.isAuthenticated()" href="/registro" class="desktop_only">/Cadastre-se</a>
+            <span *ngIf="authService.isAuthenticated()" (mouseenter)="toggleUserMenu()" (mouseleave)="toggleUserMenu()">
+                <div class="username_container">
+                    <i class="material-icons username" [ngClass]="{'active': isMenuOpen}">person</i>
+                    <span class="desktop_only">{{ authService.getUserName() }}</span>
+                    <div *ngIf="isUserMenuOpen" class="user-menu">                       
+                        <a href="/minhas-compras">Minhas Compras</a>
+                        <p (click)="logout()">Sair</p>
+                    </div>
+                </div>
+            </span>
+        </span>
+        <span class="icon">
+            <i class="material-icons">shopping_bag</i>
+            <a href="" class="desktop_only">Carrinho</a>
+        </span>
+    </div>
+    <div class="options_mobile" [ngClass]="{'slideInAnimation': isMenuOpen, 'slideOutAnimation': !isMenuOpen}">
+        <div class="fechar" (click)="toggleMenuOpen()">
+            <img class="x" src="../../../assets/x.png" alt="ícone x para fechar o menu">
+        </div>
+        <p>Início</p>
+        <p class="products_mobile" (click)="toggleMenuProdutos()">Produtos <img src="../../../assets/seta-direita.png"
+                alt="seta para diretia"></p>
+        <p>Trocas e Devoluções</p>
+        <p>Prazo de Entrega</p>
+        <p>Formas de Pagamento</p>
+    </div>
+    <div class="options desktop_only" (mouseout)="ocultarDivInterna()">
+        <p>Início</p>
+        <p class="products" (mouseover)="mostrarDivInterna()">Produtos<i class="material-icons">expand_more</i></p>
+        <p>Trocas e Devoluções</p>
+        <p>Prazo de Entrega</p>
+        <p>Formas de Pagamento</p>
+    </div>
+    <div class="produtos" [ngStyle]="{'display': mostrarDiv  ? 'block' : 'none'}" [ngClass]="{
+        'slideInDirAnimation': isMenuProdutosOpen,
+        'slideOutDirAnimation': !isMenuProdutosOpen,
+        'fadeIn': isMouseOverDivInterna
+      }" (mouseover)="mostrarDivInterna()" (mouseout)="ocultarDivInterna()">
+        <div class="voltar mobile_only">
+            <img (click)="toggleMenuProdutos()" class="iconvoltar" src="../../../assets/iconvoltar.png"
+                alt="seta para voltar">
+            <p>PRODUTOS</p>
+        </div>
+        <ul class="product-menu">
+            <li>TRICOTS</li>
+            <li>CAMISAS</li>
+            <li>BODYS</li>
+            <li>CALÇAS</li>
+            <li>BLAZERS</li>
+            <li>T-SHIRTS</li>
+            <li>VESTIDOS</li>
+            <li>ACESSÓRIOS</li>
+            <li>CASACOS & JAQUETAS</li>
+            <li>CROPPEDS & BLUSAS</li>
+            <li>SAIA & SHORTS</li>
+            <li>CALÇADOS</li>
+        </ul>
+    </div>
+</div>

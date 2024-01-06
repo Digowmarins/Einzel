@@ -1,0 +1,119 @@
+.login-container {
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+    border-radius: 8px;
+  }
+  
+  .login-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    position: relative;
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    color: #666;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input {
+    width: 96%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .field-icon {
+    float: right;
+    margin-left: -25px;
+    margin-top: -25px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .forgot-password {
+    float: right;
+    padding: 15px;
+    text-decoration: none;
+    color: #000000;
+  }
+  
+  .forgot-password:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  .senha-input {
+    position: relative;
+  }
+  
+  .senha-input input {
+    width: 96%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .senha-icon {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding-right: 2%;
+  }
+
+  .error-message {
+    color: red;
+  }
+  
+  .entrar-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff0000b7;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+
+  .entrar-button:hover {
+    background-color: #ff0000;
+  }
+  
+  .form-footer {
+    text-align: center;
+  }
+  
+  .form-footer a {
+    color: #007BFF;
+    text-decoration: none;
+  }
+  
+  .form-footer a:hover {
+    text-decoration: underline;
+  }
+  
+
+  @media only screen and (max-width: 768px) {
+    .error-message {
+      padding-bottom: 7px;
+    }
+  }

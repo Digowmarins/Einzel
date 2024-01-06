@@ -1,0 +1,69 @@
+<div class="registro-form">
+  <h1>Criar uma conta</h1>
+
+  <!-- Exibe mensagem de acordo com o resultado -->
+  <div *ngIf="mensagem !== ''" class="overlay-message" [ngClass]="{'success': operacaoBemSucedida, 'error': operacaoBemSucedida === false}">
+    <h2>{{ mensagem }}</h2>
+    <button (click)="fecharMensagem()" class="btn btn-primary">OK</button>
+  </div>
+
+  <form [formGroup]="registroForm" (ngSubmit)="submitRegistro()">
+    <div class="form-group">
+      <label for="nomeCompleto">Nome Completo</label>
+      <input type="text" id="nomeCompleto" formControlName="nomeCompleto">
+      <div class="mensagem__erro" *ngIf="registroForm.get('nomeCompleto')?.errors && registroForm.get('nomeCompleto')?.touched">Nome Completo é obrigatório.</div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" formControlName="email">
+      <div class="mensagem__erro" *ngIf="registroForm.get('email')?.errors && registroForm.get('email')?.touched">Email é obrigatório.</div>
+      <div class="mensagem__erro" *ngIf="registroForm.get('email')?.errors?.['email'] && registroForm.get('email')?.touched">Por favor, insira um email válido.</div>
+    </div>
+
+    <div class="form-group">
+      <label for="telefone">Telefone (Opcional)</label>
+      <input
+        type="tel"
+        id="telefone"
+        formControlName="telefone"
+        (input)="aplicarMascaraTelefone($event)"
+      >
+    </div>
+
+    <div class="form-group">
+      <div class="field-container">
+        <label for="senha">Senha:</label>
+        <div class="senha-input">
+          <input [type]="senhaVisivel ? 'text' : 'password'" id="senha" formControlName="senha">
+          <button type="button" class="senha-icon" (click)="toggleSenhaVisibility('senha')">
+            <span class="material-icons">
+              {{ senhaVisivel ? 'visibility_off' : 'visibility' }}
+            </span>
+          </button>
+        </div>
+        <div class="mensagem__erro" *ngIf="registroForm.get('senha')?.errors?.['required'] && registroForm.get('senha')?.touched">Senha é obrigatória.</div>
+        <div class="mensagem__erro" *ngIf="registroForm.get('senha')?.errors?.['minlength'] && registroForm.get('senha')?.touched">A senha deve ter pelo menos 6 caracteres.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="field-container">
+        <label for="confirmarSenha">Confirmar Senha:</label>
+        <div class="senha-input">
+          <input [type]="confirmarSenhaVisivel ? 'text' : 'password'" id="confirmarSenha"
+            formControlName="confirmarSenha">
+          <button type="button" class="senha-icon" (click)="toggleSenhaVisibility('confirmarSenha')">
+            <span class="material-icons">
+              {{ confirmarSenhaVisivel ? 'visibility_off' : 'visibility' }}
+            </span>
+          </button>
+        </div>
+        <div class="mensagem__erro" *ngIf="registroForm.get('confirmarSenha')?.errors?.['required'] && registroForm.get('confirmarSenha')?.touched">Confirmar senha é obrigatório.</div>
+        <div class="mensagem__erro" *ngIf="registroForm.hasError('senhasNaoCoincidem') && registroForm.get('confirmarSenha')?.touched">As senhas não coincidem.</div>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="registroForm.invalid">Criar Conta</button>
+  </form>
+</div>

@@ -1,0 +1,109 @@
+<form (ngSubmit)="criarProduto()" #produtoForm="ngForm">
+  <div class="form-group">
+    <label for="id">ID do Produto:</label>
+    <input type="number" id="id" name="id" [(ngModel)]="novoProduto.id" required>
+  </div>
+  <div class="form-group">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" [(ngModel)]="novoProduto.nome" required>
+  </div>
+  <div class="form-group">
+    <label for="descricao">Descrição:</label>
+    <textarea id="descricao" name="descricao" [(ngModel)]="novoProduto.descricao" required></textarea>
+  </div>
+  <div class="form-group">
+    <label for="composicao">Composicao:</label>
+    <input type="text" id="composicao" name="composicao" [(ngModel)]="novoProduto.composicao" required>
+  </div>
+  <div class="form-group">
+    <label for="preco">Preço:</label>
+    <input type="number" id="preco" name="preco" [(ngModel)]="novoProduto.preco" required>
+  </div>
+  <div class="form-group">
+    <label for="categoria">Categoria:</label>
+    <input type="text" id="categoria" name="categoria" [(ngModel)]="novoProduto.categoria" required>
+  </div>
+  <div class="form-group">
+    <label for="peso">Peso:</label>
+    <input type="number" id="peso" name="peso" [(ngModel)]="novoProduto.peso" required>
+  </div>
+  <div class="form-group">
+    <label for="altura">Altura:</label>
+    <input type="number" id="altura" name="altura" [(ngModel)]="novoProduto.altura" required>
+  </div>
+  <div class="form-group">
+    <label for="comprimento">Comprimento:</label>
+    <input type="number" id="comprimento" name="comprimento" [(ngModel)]="novoProduto.comprimento" required>
+  </div>
+  <div class="form-group">
+    <label for="largura">Largura:</label>
+    <input type="number" id="largura" name="largura" [(ngModel)]="novoProduto.largura" required>
+  </div>
+
+  <h2>Variações</h2>
+  <button type="button" (click)="adicionarVariacao()">Adicionar Variação</button>
+  <div *ngFor="let variacao of novoProduto.variacoes; let i = index">
+    <div class="form-group">
+      <label for="tamanho{{i}}">Tamanho:</label>
+      <input type="text" id="tamanho{{i}}" name="tamanho{{i}}" [(ngModel)]="variacao.tamanho" required>
+    </div>
+    <div class="form-group">
+      <label for="estoque{{i}}">Estoque:</label>
+      <input type="number" id="estoque{{i}}" name="estoque{{i}}" [(ngModel)]="variacao.estoque" required>
+    </div>
+    <div class="form-group">
+      <label for="cor{{i}}">Cor:</label>
+      <input type="color" id="cor{{i}}" name="cor{{i}}" [(ngModel)]="variacao.cor" required>
+    </div>
+    <button type="button" (click)="adicionarMedida(variacao)">Adicionar Medida</button>
+    <div *ngFor="let medida of variacao.medidas; let j = index">
+      <div class="form-group">
+        <label for="regiao{{i}}-{{j}}">Região:</label>
+        <input type="text" id="regiao{{i}}-{{j}}" name="regiao{{i}}-{{j}}" [(ngModel)]="medida.regiao" required>
+      </div>
+      <div class="form-group">
+        <label for="regTam{{i}}-{{j}}">Tamanho da Região:</label>
+        <input type="number" id="regTam{{i}}-{{j}}" name="regTam{{i}}-{{j}}" [(ngModel)]="medida.regTam" required>
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Criar Produto</button>
+</form>
+
+
+<h1>ADICIONAR IMAGENS AO PRODUTO CRIADO</h1>
+
+<form (ngSubmit)="enviarImagem()" #imagemForm="ngForm" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="produtoId">ID do Produto:</label>
+    <input type="number" id="produtoId" name="produtoId" required [(ngModel)]="novoProduto.id">
+  </div>
+  <div class="form-group">
+    <label for="imagemUrl">Imagem:</label>
+    <input type="file" id="imagemUrl" name="imagemUrl" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Enviar imagem</button>
+</form>
+
+
+
+<h1>EXCLUIR PRODUTO</h1>
+<form (ngSubmit)="excluirProduto()">
+  <div class="form-group">
+    <label for="produtoId">ID do Produto:</label>
+    <input type="number" id="produtoId" name="produtoId" required [(ngModel)]="novoProduto.id">
+  </div>
+  <button type="submit" class="btn btn-primary vermelho">Excluir Produto</button>
+</form>
+
+
+
+<h1>BANNER</h1>
+
+<form (ngSubmit)="enviarImagemBanner()" #imagemFormBanner="ngForm" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="imagemUrlBanner">Imagem do Banner:</label>
+    <input type="file" id="imagemUrlBanner" name="imagemUrlBanner" required>
+  </div>
+  <button type="button" class="btn btn-primary" (click)="enviarImagemBanner()">Enviar imagem do banner</button>
+</form>

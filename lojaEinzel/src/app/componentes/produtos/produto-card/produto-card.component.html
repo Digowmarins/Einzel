@@ -1,0 +1,22 @@
+<app-banner></app-banner>
+<div class="produtos-container">
+    <ng-container *ngFor="let produto of produtoLista; let i = index">
+        <div class="produto-card" *ngIf="produto.imagemUrl.length > 0"
+             (mouseenter)="alternarSegundaImagem(i)"
+             (mouseleave)="resetarSegundaImagem(i)"
+             (click)="navegarParaProduto(produto.id)">
+            <img [src]="mostrarSegundaImagem[i] ? produto.imagemUrl[1] : produto.imagemUrl[0]" 
+                 alt="{{ produto.nome }}" 
+                 class="imagem-produto">
+            <div class="infos">
+                <h1 class="nome">{{ produto.nome }}</h1>
+                <div class="cor-produto-container" *ngFor="let variacao of produto.variacoes">
+                    <div class="cor-produto" [style.background-color]="variacao.cor"></div>                  
+                </div>
+                <p class="preco">R$ {{ produto.preco | number:'2.2-2' }}</p>
+                <p class="preco_cartao">3X de R$ {{ produto.preco / 3 | number:'2.2-2' }}</p>
+            </div>
+            <button class="btn_comprar">COMPRAR</button>
+        </div>
+    </ng-container>
+</div>

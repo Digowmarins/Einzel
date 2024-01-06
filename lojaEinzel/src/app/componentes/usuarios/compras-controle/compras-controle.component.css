@@ -1,0 +1,50 @@
+/* src/app/componentes/usuarios/compras-controle/compras-controle.component.css */
+
+.compras-controle {
+    text-align: center;
+    padding-bottom: 60px;
+    
+  }
+  
+  .titulo {
+    color: #333;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  tr:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .codigo-rastreio-input {
+    margin-top: 40px;
+  }
+  
+  .codigo-rastreio-input input {
+    padding: 8px;
+    margin-right: 8px;
+    width: 300px; /* Ajuste conforme necessário */
+  }
+  
+  .codigo-rastreio-input button {
+    padding: 10px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  

@@ -1,0 +1,48 @@
+/* Estilizando o formulário */
+.form-group {
+    margin-bottom: 15px;
+    margin-left: 30px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Estilizando o botão */
+  button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 15px;
+  }
+  
+  /* Estilizando o botão quando o mouse passa por cima */
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Estilizando mensagens de erro */
+  .error-message {
+    color: red;
+    font-size: 14px;
+  }
+
+  .vermelho {
+    background-color: rgba(255, 0, 0, 0.753)
+  }
+
+  .vermelho:hover {
+    background-color: red;
+  }
+  

@@ -29,6 +29,8 @@ Einzel é um projeto fictício que simula um site de compras de roupas, oferecen
    - Crie uma conta no site para uma experiência personalizada.
    - Faça login para acessar recursos exclusivos para usuários registrados.
    - Recupere a senha, se necessário.
+  
+     
      ![image](https://github.com/Digowmarins/Einzel/assets/114032897/5f7d888b-476a-4fff-a1c8-3a04eb29b2e9)
      ![image](https://github.com/Digowmarins/Einzel/assets/114032897/fd7ca82e-ea01-4a01-a336-d7e4f605f95d)
 

@@ -1,6 +1,6 @@
 # Einzel - Site de Compras de Roupas Fictício
 
-**Nota:** Este projeto deve ser usado em conjunto com a [API Einzel](https://github.com/Digowmarins/api-einzel).
+**Nota:** Este projeto deve ser usado em conjunto com a [EinzelAPI](https://github.com/Digowmarins/EinzelAPI).
 
 Bem-vindo ao Einzel, um site fictício para uma loja de roupas, desenvolvido em Angular com uma API em .NET.
 

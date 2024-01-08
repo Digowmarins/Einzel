@@ -8,7 +8,7 @@ Bem-vindo ao Einzel, um site fictício para uma loja de roupas, desenvolvido em 
 
 Einzel é um projeto fictício que simula um site de compras de roupas, oferecendo uma experiência de compra online. O projeto é dividido em duas partes principais:
 
-- **Front-end (Angular):** A interface do usuário interativa que os clientes utilizam para navegar pelo catálogo de produtos, adicionar itens ao carrinho e realizar compras.
+- **Front-end (Angular):** A interface do usuário interativa que os clientes utilizam para navegar pelo catálogo de produtos, criar conta, fazer login e acompanhar pedidos.
 
 - **Back-end (.NET):** Uma API que gerencia dados relacionados aos produtos, usuários e pedidos. Ela interage com o banco de dados para fornecer informações relevantes ao front-end.
 
